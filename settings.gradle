@@ -1,3 +1,3 @@
-include ':device-apps'
+include ':lib'
 include ':app'
 rootProject.name = "App Manager"
