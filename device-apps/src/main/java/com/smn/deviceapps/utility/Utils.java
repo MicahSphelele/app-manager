@@ -66,6 +66,8 @@ public class Utils {
 
                 }
 
+                String installerPackageName = pm.getInstallerPackageName(appInfo.packageName);
+
                 DeviceApp deviceApp = new DeviceApp(appInfo.packageName,
                         pm.getApplicationLabel(appInfo).toString(),
                         appIcon,
@@ -73,6 +75,7 @@ public class Utils {
                         versionCode,
                         minimumSupportSdk,
                         appInfo.targetSdkVersion,
+                        installerPackageName,
                         new Date(pi.firstInstallTime),
                         new Date(pi.lastUpdateTime),
                         appInfo.publicSourceDir,

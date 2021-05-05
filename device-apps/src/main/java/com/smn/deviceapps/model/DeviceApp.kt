@@ -13,6 +13,7 @@ data class DeviceApp(
     val versionCode: Int? = null,
     val minimumSupportSdk: Int? = null,
     val maximumSupportSdk: Int? = null,
+    val installerPackageName: String? = null,
     val firstInstallTime: Date? = null,
     val lastUpdateTime: Date? = null,
     val publicSourceDir: String? = null,
