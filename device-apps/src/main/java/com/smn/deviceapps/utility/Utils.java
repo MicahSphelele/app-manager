@@ -1,4 +1,4 @@
-package com.sdk.miscsdk.utility;
+package com.smn.deviceapps.utility;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
-import com.sdk.miscsdk.model.App;
-import com.sdk.miscsdk.observer.AppListener;
+import com.smn.deviceapps.model.App;
+import com.smn.deviceapps.observer.AppListener;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

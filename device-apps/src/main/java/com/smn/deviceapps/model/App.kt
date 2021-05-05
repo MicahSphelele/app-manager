@@ -1,7 +1,7 @@
-package com.sdk.miscsdk.model
+package com.smn.deviceapps.model
 
 import android.graphics.drawable.Drawable
-import com.sdk.miscsdk.utility.Utils
+import com.smn.deviceapps.utility.Utils
 import java.io.File
 import java.util.*
 

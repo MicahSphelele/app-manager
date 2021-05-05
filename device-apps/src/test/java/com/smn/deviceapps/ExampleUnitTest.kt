@@ -1,4 +1,4 @@
-package com.sdk.miscsdk
+package com.smn.deviceapps
 
 import org.junit.Test
 

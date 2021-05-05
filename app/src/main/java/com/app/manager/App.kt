@@ -1,7 +1,7 @@
 package com.app.manager
 
 import android.app.Application
-import com.sdk.miscsdk.DeviceAppsSDK
+import com.smn.deviceapps.DeviceAppsSDK
 
 class App : Application() {
 

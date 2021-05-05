@@ -1,4 +1,4 @@
-package com.sdk.miscsdk;
+package com.smn.deviceapps;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.sdk.miscsdk.exceptions.SDKAlreadyConfiguredException;
-import com.sdk.miscsdk.observer.AppListener;
-import com.sdk.miscsdk.utility.Utils;
+import com.smn.deviceapps.exceptions.SDKAlreadyConfiguredException;
+import com.smn.deviceapps.observer.AppListener;
+import com.smn.deviceapps.utility.Utils;
 
 import org.jetbrains.annotations.NotNull;
 

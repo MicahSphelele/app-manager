@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.sdk.miscsdk.DeviceAppsSDK
-import com.sdk.miscsdk.model.App
-import com.sdk.miscsdk.observer.AppListener
+import com.smn.deviceapps.DeviceAppsSDK
+import com.smn.deviceapps.model.App
+import com.smn.deviceapps.observer.AppListener
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {

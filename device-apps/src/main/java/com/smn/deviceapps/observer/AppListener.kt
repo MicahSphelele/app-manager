@@ -1,6 +1,6 @@
-package com.sdk.miscsdk.observer
+package com.smn.deviceapps.observer
 
-import com.sdk.miscsdk.model.App
+import com.smn.deviceapps.model.App
 
 interface AppListener {
     fun onLoad()
