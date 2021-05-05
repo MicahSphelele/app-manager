@@ -12,7 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/miscsdk" />
+            <option value="$PROJECT_DIR$/device-apps" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
