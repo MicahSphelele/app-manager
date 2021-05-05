@@ -5,7 +5,7 @@ import com.smn.deviceapps.utility.Utils
 import java.io.File
 import java.util.*
 
-data class App(
+data class DeviceApp(
     val packageName: String? = null,
     val appName: String? = null,
     val appIcon: Drawable? = null,
@@ -32,7 +32,7 @@ data class App(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as App
+        other as DeviceApp
 
         if (packageName != other.packageName) return false
         if (appName != other.appName) return false

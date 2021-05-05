@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.smn.deviceapps.DeviceAppsSDK
-import com.smn.deviceapps.model.App
+import com.smn.deviceapps.model.DeviceApp
 import com.smn.deviceapps.observer.AppListener
 import kotlinx.coroutines.*
 
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-                override fun onComplete(appsList: List<App>) {
+                override fun onComplete(appsList: List<DeviceApp>) {
                     CoroutineScope(Dispatchers.Main).launch {
                         textV.text = String.format("%s",appsList[0].toString())
 

@@ -10,7 +10,7 @@ import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
-import com.smn.deviceapps.model.App;
+import com.smn.deviceapps.model.DeviceApp;
 import com.smn.deviceapps.observer.AppListener;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -33,7 +33,7 @@ public class Utils {
         try {
             PackageManager pm = context.getPackageManager();
 
-            List<App> list = new ArrayList<>();
+            List<DeviceApp> list = new ArrayList<>();
 
             listener.onLoad();
 
@@ -66,7 +66,7 @@ public class Utils {
 
                 }
 
-                App app = new App(appInfo.packageName,
+                DeviceApp deviceApp = new DeviceApp(appInfo.packageName,
                         pm.getApplicationLabel(appInfo).toString(),
                         appIcon,
                         pi.versionName,
@@ -79,7 +79,7 @@ public class Utils {
                         pi.requestedPermissions,
                         new File(appInfo.publicSourceDir));
 
-                list.add(app);
+                list.add(deviceApp);
             }
 
             listener.onComplete(list);
