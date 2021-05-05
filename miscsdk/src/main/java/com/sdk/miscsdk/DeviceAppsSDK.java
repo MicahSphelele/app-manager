@@ -1,5 +1,6 @@
 package com.sdk.miscsdk;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 
@@ -11,11 +12,12 @@ import com.sdk.miscsdk.utility.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
-public class MiscSDK {
+public class DeviceAppsSDK {
 
-    private static MiscSDK instance = null;
+    @SuppressLint("StaticFieldLeak")
+    private static DeviceAppsSDK instance = null;
 
-    public static MiscSDK.Builder configureSDK() {
+    public static DeviceAppsSDK.Builder configureSDK() {
         if (instance != null) {
             throw new SDKAlreadyConfiguredException();
         }
@@ -25,11 +27,11 @@ public class MiscSDK {
     @NotNull
     private final Context context;
 
-    MiscSDK(@NotNull Context context){
+    DeviceAppsSDK(@NotNull Context context){
         this.context = context;
     }
 
-    public static MiscSDK getInstance() {
+    public static DeviceAppsSDK getInstance() {
         return instance;
     }
 
@@ -51,14 +53,14 @@ public class MiscSDK {
 
         }
 
-        public MiscSDK.Builder withContext(@NotNull Context context) {
+        public DeviceAppsSDK.Builder withContext(@NotNull Context context) {
             this.context = context;
             return this;
         }
 
         public void apply(){
 
-            MiscSDK.instance = new MiscSDK(this.context);
+            DeviceAppsSDK.instance = new DeviceAppsSDK(this.context);
         }
     }
 }

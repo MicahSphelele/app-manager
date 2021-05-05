@@ -1,14 +1,14 @@
 package com.app.manager
 
 import android.app.Application
-import com.sdk.miscsdk.MiscSDK
+import com.sdk.miscsdk.DeviceAppsSDK
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        MiscSDK.configureSDK()
+        DeviceAppsSDK.configureSDK()
             .withContext(this)
             .apply()
     }
