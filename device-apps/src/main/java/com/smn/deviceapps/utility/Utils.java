@@ -10,9 +10,12 @@ import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
+import com.smn.deviceapps.constants.Constants;
 import com.smn.deviceapps.model.DeviceApp;
+import com.smn.deviceapps.model.AppInstaller;
 import com.smn.deviceapps.observer.AppListener;
 
+import org.jetbrains.annotations.NotNull;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -67,6 +70,16 @@ public class Utils {
                 }
 
                 String installerPackageName = pm.getInstallerPackageName(appInfo.packageName);
+                PackageInfo installerPackageInfo = getPackageInfo(pm,installerPackageName);
+                ApplicationInfo installerAppInfo = installerPackageInfo.applicationInfo;
+
+                if(installerPackageName == null || installerPackageName.equals("")) {
+                    installerPackageName = Constants.UNKNOWN_INSTALLER_PACKAGE;
+                }
+
+                AppInstaller appInstaller = new AppInstaller(
+                        installerPackageName,
+                        pm.getApplicationLabel(installerAppInfo).toString());
 
                 DeviceApp deviceApp = new DeviceApp(appInfo.packageName,
                         pm.getApplicationLabel(appInfo).toString(),
@@ -80,7 +93,8 @@ public class Utils {
                         new Date(pi.lastUpdateTime),
                         appInfo.publicSourceDir,
                         pi.requestedPermissions,
-                        new File(appInfo.publicSourceDir));
+                        new File(appInfo.publicSourceDir),
+                        appInstaller);
 
                 list.add(deviceApp);
             }
@@ -130,6 +144,21 @@ public class Utils {
                     if (parser.getAttributeNameResource(i) == android.R.attr.minSdkVersion)//alternative, which works most of the times: "minSdkVersion".equals(parser.getAttributeName(i)))
                         return parser.getAttributeIntValue(i, -1);
         return -1;
+    }
+
+    @SuppressLint("PackageManagerGetSignatures")
+    @NotNull
+    private static PackageInfo getPackageInfo(PackageManager packageManager, String packageName) throws PackageManager.NameNotFoundException {
+        try {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                return packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNING_CERTIFICATES);
+            }
+            return packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new PackageManager.NameNotFoundException();
+        }
     }
 
 }

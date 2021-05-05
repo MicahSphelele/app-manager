@@ -1,6 +1,7 @@
 package com.smn.deviceapps.model
 
 import android.graphics.drawable.Drawable
+import com.smn.deviceapps.constants.Constants
 import com.smn.deviceapps.utility.Utils
 import java.io.File
 import java.util.*
@@ -18,7 +19,8 @@ data class DeviceApp(
     val lastUpdateTime: Date? = null,
     val publicSourceDir: String? = null,
     val permissions: Array<String>? = null,
-    val file: File
+    val file: File? = null,
+    val deviceAppInstaller: AppInstaller = Constants.DEFAULT_INSTALLER
 ){
     override fun toString(): String {
 
@@ -26,7 +28,7 @@ data class DeviceApp(
                 "minimumSupportSdk: $minimumSupportSdk, maximumSupportSdk : $maximumSupportSdk ," +
                 "firstInstallTime : $firstInstallTime, lastUpdateTime : $lastUpdateTime, " +
                 "publicSourceDir : $publicSourceDir, permissions : ${Arrays.toString(permissions)}," +
-                " fileSize : ${Utils.getStringSizeLengthFile(file.length())} }\n\n"
+                " fileSize : ${Utils.getStringSizeLengthFile(file?.length()!!)} }\n\n"
     }
 
     override fun equals(other: Any?): Boolean {
